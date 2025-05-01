@@ -1,44 +1,180 @@
-# Digital Library Management System
+# 📚 Digital Library Management System
 
-A simple console-based digital library management system implemented in Java.
+![Java](https://img.shields.io/badge/Java-17-%23ED8B00?logo=java&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-4%20Pillars-%23A259FF)
+![GitHub](https://img.shields.io/badge/License-MIT-%2300C4CC)
+![Build](https://img.shields.io/badge/Build-Passing-%2342f545)
 
-## Features
-- Add physical books and e-books
-- Manage borrowers
-- Borrow and return books
-- Search for books
-- View all books and borrowers
-- View books borrowed by a specific borrower
+A modern, object-oriented digital library management system with console interface, built with Java following clean architecture principles.
 
-## How to Run
-1. Make sure you have Java JDK installed
-2. Clone this repository
-3. Compile and run the Main.java file
+<div align="center">
+  <img src="https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif" width="400" alt="Library Animation">
+</div>
 
-## OOP Concepts Applied
-- Encapsulation: All class fields are private with getters/setters
-- Inheritance: PhysicalBook and EBook inherit from Book
-- Polymorphism: Different book types are treated uniformly
-- Abstraction: Book is an abstract class with abstract methods
+## ✨ Features
 
-## Git Usage
-- Regular commits with descriptive messages
-- Proper branching strategy
-- Clear commit history
+### 📚 Core Functionality
+| Feature                | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| **Book Management**    | Add, search, and manage physical books and e-books                         |
+| **Borrower System**    | Register and track borrowers with student IDs                               |
+| **Loan Transactions**  | Process book borrowing and returning with date tracking                    |
+| **Reporting**         | View all books, borrowers, and active loans                                |
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### 🛠️ Technical Highlights
+- **Full OOP Implementation** (Encapsulation, Inheritance, Polymorphism, Abstraction)
+- **Clean Architecture** with proper separation of concerns
+- **Input Validation** and error handling
+- **Comprehensive Documentation** with JavaDoc
 
-## Folder Structure
+## 🚀 Getting Started
 
-The workspace contains two folders by default, where:
+### Prerequisites
+- Java JDK 17+
+- Git (for version control)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/aichamoussaoui/digital_library.git
+```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+# Navigate to project directory
+```bash
+cd digital_library
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+classDiagram
+    direction TB
+    
+    class Book {
+        <<abstract>>
+        -String title
+        -String author
+        -String isbn
+        -boolean isBorrowed
+        +getBookType()* String
+        +toString() String
+    }
+    
+    Book <|-- PhysicalBook
+    Book <|-- EBook
+    
+    class Borrower {
+        -String name
+        -String studentId
+        -List<Book> borrowedBooks
+        +borrowBook(Book)
+        +returnBook(Book)
+    }
+    
+    class LibraryService {
+        -List<Book> books
+        -List<Borrower> borrowers
+        -List<BorrowRecord> borrowRecords
+        +addBook(Book)
+        +borrowBook(String, String, LocalDate)
+    }
+    
+    class MenuService {
+        -LibraryService libraryService
+        -Scanner scanner
+        +displayMainMenu()
+    }
 
-## Dependency Management
+```bash
+digital_library/
+├── src/                   # Source code
+│   ├── models/            # Domain models (Book, Borrower, etc.)
+│   ├── services/          # Business logic services
+│   └── Main.java          # Application entry point
+├── bin/                   # Compiled classes
+├── .gitignore            # Git ignore rules
+├── LICENSE               # MIT License
+└── README.md            # Project documentation
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## 🛠️ Development
+- **Built With**
+- **Java SE 17**
+
+- **Object-Oriented Principles**
+
+- **Clean Code Architecture**
+
+- **Git Version Control**
+
+## 🧪 Testing Approach
+- **Manual testing of all features**
+
+Input validation testing
+
+Edge case testing
+
+🌿 Git Workflow
+# Create feature branch
+```bash
+git checkout -b feature/new-feature
+```
+
+# Make changes and commit
+```bash
+git add .
+git commit -m "feat: add new book search functionality"
+```
+
+```bash
+
+# Push to remote
+git push origin feature/new-feature
+```
+
+## 📚 OOP Implementation
+
+Principle	Implementation Example	Benefit
+Encapsulation	Private fields with public getters/setters	Data protection
+Inheritance	PhysicalBook and EBook extend Book	Code reuse
+Polymorphism	Treat all books uniformly via base class	Flexible system design
+Abstraction	Abstract Book class with abstract method	Clear contract for subclasses
+
+## 📝 Code Examples
+Creating a New Book
+java
+// Create a physical book
+Book physicalBook = new PhysicalBook(
+    "Clean Code", 
+    "Robert Martin", 
+    "978-0132350884"
+);
+
+// Create an e-book
+Book ebook = new EBook(
+    "Effective Java", 
+    "Joshua Bloch", 
+    "978-0134685991"
+);
+Borrowing a Book
+java
+// Borrow a book
+libraryService.borrowBook(
+    "978-0132350884", 
+    "S10001", 
+    LocalDate.now().plusWeeks(2)
+);
+
+## 📜 License
+Distributed under the MIT License. See LICENSE for more information.
+
+## ✉️ Contact
+Moussaoui Aicha - aichamoussaoui@email.com
+
+Project Link: https://github.com/aichamoussaoui/digital_library
+
+🙏 Acknowledgments
+Oracle Java Documentation
+
+VS Code Java Extension Pack
+
+GitHub for project hosting
+
+All open source contributors
