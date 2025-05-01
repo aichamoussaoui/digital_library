@@ -138,6 +138,7 @@ Polymorphism	Treat all books uniformly via base class	Flexible system design
 Abstraction	Abstract Book class with abstract method	Clear contract for subclasses
 
 ## 📝 Code Examples
+```bash
 Creating a New Book
 java
 // Create a physical book
@@ -161,6 +162,7 @@ libraryService.borrowBook(
     "S10001", 
     LocalDate.now().plusWeeks(2)
 );
+```
 
 ## 📜 License
 Distributed under the MIT License. See LICENSE for more information.
