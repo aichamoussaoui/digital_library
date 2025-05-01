@@ -166,9 +166,14 @@ libraryService.borrowBook(
 Distributed under the MIT License. See LICENSE for more information.
 
 ## ✉️ Contact
-Moussaoui Aicha - aichamoussaoui@email.com
+```bash
+aichamoussaoui968@gmail.com
+```
 
-Project Link: https://github.com/aichamoussaoui/digital_library
+Project Link: 
+```bash
+https://github.com/aichamoussaoui/digital_library
+```
 
 🙏 Acknowledgments
 Oracle Java Documentation
